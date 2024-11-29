@@ -1,7 +1,7 @@
 SECTION .data
 msg: db "Salut" ,6
 
-SECtION .text
+SECtION .text 
 global _start
 _start:
 	call helloworld
