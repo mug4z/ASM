@@ -18,12 +18,12 @@ _start:
 	syscall
 
 strlen:
-    cmp byte [rdi], 0
-    jz  finished
-    inc rdi
-    jmp strlen
+	cmp byte [rdi], 0
+	jz  finished
+	inc rdi
+	jmp strlen
 
 finished:
-    sub rdi, rbx
-    ret
+	sub rdi, rbx
+	ret
 
