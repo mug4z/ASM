@@ -1,14 +1,15 @@
 SECTION .data
-msg:    db "Bonjour", 10
+msg:    db 'TI', 10,0
 
 SECTION .text
 global  _start
 _start:
-	mov rax, msg ; Move the address of the message in rax
+	mov rax, msg    ; Move the address of the message in rax
 	call save_push  ; Call the subroutine (function) strlen
 
 	mov rdx,rax ; number of byte to write
 	mov rax, 1 ; call write
+	
 	mov rdi, 1 ; use the stdout file descriptor
 	mov rsi, msg
 	syscall
@@ -30,7 +31,6 @@ strlen:
 
 finished:
         sub rax, rbx
-	dec rax
 	pop rbx ; rbx get its origin value
 	ret
 
