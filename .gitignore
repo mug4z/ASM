@@ -1,4 +1,3 @@
-.asm-lsp.toml
 *.o
 test*
 *test
