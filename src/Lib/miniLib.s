@@ -32,10 +32,29 @@ print:
 	pop rsi
 	pop rdi
 	ret
+; Print END
 
+; PrintLF BEGIN
+printLF:
+	call print
+	push rax
+	mov rax, 0AH ; Put the \n into rax
+	push rax     ; push the linefeed onto the stack so we can get the address
+                        ; given that we have a little-endian architecture, eax register bytes are stored in reverse order,
+                        ; this corresponds to stack memory contents of 0Ah, 0h, 0h, 0h,
+                        ; giving us a linefeed followed by a NULL terminating byte
+	mov rax, rsp; get the address of \n to rax
+	pop rax
+	pop rax
+	ret
+
+
+; PrintLF END
+
+; quit BEGIN
 quit:
 	mov rax, 60
 	mov rdi, 1
 	syscall
 	ret
-; Print END
+; quit END
