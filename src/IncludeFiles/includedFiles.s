@@ -1,4 +1,4 @@
-%include 'miniLib.s'
+%include '../Lib/miniLib.s'
 
 SECTION .data
 msg:    db "Bonjour", 10
