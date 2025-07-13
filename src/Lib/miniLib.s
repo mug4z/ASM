@@ -20,6 +20,7 @@ print:
 	push rdi
 	push rsi
 	push rdx
+	push rcx ; save rcx value, because syscall change it. Don't know why for now.
 
 	mov rsi, rax
 	call strlen
@@ -28,9 +29,10 @@ print:
 	mov rdi, 1
 	syscall
 
-	pop rdx
-	pop rsi
 	pop rdi
+	pop rsi
+	pop rdx
+	pop rcx
 	ret
 ; Print END
 
@@ -44,6 +46,7 @@ printLF:
                         ; this corresponds to stack memory contents of 0Ah, 0h, 0h, 0h,
                         ; giving us a linefeed followed by a NULL terminating byte
 	mov rax, rsp; get the address of \n to rax
+	call print
 	pop rax
 	pop rax
 	ret
