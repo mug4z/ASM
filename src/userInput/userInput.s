@@ -6,7 +6,7 @@ SECTION .bss
 ;variableName3:      RESD    1       ; reserve space for 1 double word
 ;variableName4:      RESQ    1       ; reserve space for 1 double precision float (quad word)
 ;variableName5:      REST    1       ; reserve space for 1 extended precision float
-userInput resb 255 ;TODO: Check why if the userInput is overloaded the rest of the byte are given to the terminal as input.
+userInput resb 255 ;TODO: Check why if the userInput is overloaded the rest of the byte are given to the terminal as input
 
 
 SECTION .data
